@@ -51,4 +51,30 @@ describe('Homepage door gestures', () => {
     fireEvent.click(door);
     expect(door).toHaveClass('door-open');
   });
+
+  it('restores an opened session without replaying the sound or blocking the shelves', () => {
+    sessionStorage.setItem('library-door-open', '1');
+    const { door, shelves } = mountDoor();
+    expect(door).toHaveClass('door-open', 'door-settled');
+    expect(shelves).not.toHaveAttribute('inert');
+    expect(HTMLMediaElement.prototype.play).not.toHaveBeenCalled();
+  });
+
+  it('remembers opening the library and releases the curtains after two seconds', () => {
+    const { door } = mountDoor();
+    fireEvent.click(door);
+    expect(sessionStorage.getItem('library-door-open')).toBe('1');
+    act(() => vi.advanceTimersByTime(1999));
+    expect(door).not.toHaveClass('door-settled');
+    act(() => vi.advanceTimersByTime(1));
+    expect(door).toHaveClass('door-settled');
+  });
+
+  it('settles immediately when reduced motion is requested', () => {
+    const { door } = mountDoor();
+    vi.stubGlobal('matchMedia', () => ({ matches: true }));
+    fireEvent.click(door);
+    act(() => vi.advanceTimersByTime(0));
+    expect(door).toHaveClass('door-settled');
+  });
 });

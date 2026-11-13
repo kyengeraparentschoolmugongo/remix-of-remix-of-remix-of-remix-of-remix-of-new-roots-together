@@ -30,6 +30,7 @@ use the editor.
 <!-- LOVABLE:END -->
 
 ## Imported application
+- Render homepage doors and shelves directly with session restoration before paint; keep navigation in LibraryShell and use resized asset pointers to avoid legacy tree repair and oversized image decoding.
 - Global quick search uses the same static search engine as the full results page, with a cancellable debounced dialog so rankings stay consistent without external listing requests.
 - Full-library results are ordered and type-filtered before pagination; the gallery uses controlled search state, and file-size sorting stays in category galleries to avoid library-wide remote HEAD requests.
 - Search preloads on user intent and caches bounded normalized query rankings; document links preserve query, page, ordering, type, and layout for return navigation.

@@ -1,4 +1,6 @@
 # Repository import
+- [ ] Smooth homepage doors, remove discarded legacy markup, and lighten shelf artwork without changing links or sound.
+- [ ] Verify homepage touch, keyboard, session return, and shelf navigation on desktop and phone.
 - [x] Fix full-search counts, pagination, global ordering, and document return state.
 - [x] Normalize natural-language queries and pre-warm search on intent and browser idle.
 - [x] Verify search on desktop and phone, including cookie overlap and regression tests.

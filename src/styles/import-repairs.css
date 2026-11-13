@@ -1,11 +1,12 @@
 /* Focused restoration of observed source states; original CSS remains authoritative. */
-.leftcurtain, .rightcurtain { transition: width 2s ease; z-index: 2000; cursor: pointer; }
-.leftcurtain.door-open, .rightcurtain.door-open { width: 1px; }
-.rope { transition: top 350ms ease; z-index: 2001; }
+.library-homepage .leftcurtain, .library-homepage .rightcurtain { transition: transform 2s ease; z-index: 2000; cursor: pointer; will-change: transform; padding: 0; border: 0; border-radius: 0; background: transparent; }
+.library-homepage .leftcurtain.door-open { transform: translateX(-100%); }
+.library-homepage .rightcurtain.door-open { transform: translateX(100%); }
+.rope { transition: transform 350ms ease, opacity 350ms ease; z-index: 2001; }
 .library-homepage .rope {
   top: clamp(24px, 8svh, 96px); left: 50%; transform: translateX(-50%);
   width: min(420px, calc(100% - 32px)); display: flex; flex-direction: column;
-  align-items: center; gap: 12px; margin: 0; text-align: center;
+  align-items: center; gap: 12px; margin: 0; padding: 0; border: 0; background: transparent; text-align: center; white-space: normal;
 }
 .library-homepage .door-instruction {
   color: var(--destructive); text-shadow: 1px 1px 3px var(--updates-shadow), -1px -1px 3px var(--updates-shadow);
@@ -19,9 +20,11 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(6px); }
 }
-.rope.door-open { top: -171%; }
-.library-homepage .rope.door-open { top: -171%; }
+.library-homepage .rope.door-open { transform: translate(-50%, -200%); opacity: 0; }
 .library-homepage .leftcurtain, .library-homepage .rightcurtain, .library-homepage .rope { pointer-events: auto; touch-action: none; }
+.library-homepage .door-open { pointer-events: none; }
+.library-homepage .door-settled { visibility: hidden; transition: none; will-change: auto; }
+.library-homepage .door-open .door-arrow { animation: none; }
 a.africaVotesChat { z-index: 2002; }
 #africavotes-chat { z-index: 2003; }
 .fresh-panel-open { display: block; visibility: visible; }
@@ -64,6 +67,14 @@ a.africaVotesChat { z-index: 2002; }
 .library-homepage .bookshelf { width: min(100%, 850px, calc((100svh - var(--library-appbar-height) - var(--shelf-overhead)) * .6366)); margin-inline: auto; flex: none; }
 .library-homepage .covers { max-width: none; display: flex; justify-content: center; align-items: flex-end; gap: 1%; }
 .library-homepage .bookshelf .thumb { width: 21% !important; max-width: 175px; margin: 0; }
+.library-homepage .shelf-row { display: contents; }
+.library-homepage .covers a { display: block; aspect-ratio: 1654 / 2339; transition: transform 150ms ease; }
+.library-homepage .covers img { width: 100%; height: 100%; object-fit: contain; }
+.library-homepage .covers a:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
+@media (hover: hover) {
+  .library-homepage .covers a:hover { transform: translateY(-4px); }
+}
+.library-homepage .covers a:active { transform: scale(.96); }
 .library-homepage .shelf-img { display: block; width: 100%; margin-top: -8px; }
 @media (max-width: 430px) {
   /* Keep the last book clear of the floating WhatsApp icon on phones. */
@@ -73,7 +84,8 @@ a.africaVotesChat { z-index: 2002; }
   .library-homepage .container { margin-left: 0; width: 100%; max-width: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .leftcurtain, .rightcurtain, .rope { transition: none; }
+  .library-homepage .leftcurtain, .library-homepage .rightcurtain, .library-homepage .rope, .library-homepage .covers a { transition: none; }
+  .library-homepage .covers a:hover { transform: none; }
   .library-homepage .door-arrow { animation: none; }
   .animated, .heartbit, .heartbeat { animation: none; }
 }
