@@ -2,7 +2,25 @@
 .leftcurtain, .rightcurtain { transition: width 2s ease; z-index: 2000; cursor: pointer; }
 .leftcurtain.door-open, .rightcurtain.door-open { width: 1px; }
 .rope { transition: top 350ms ease; z-index: 2001; }
+.library-homepage .rope {
+  top: clamp(24px, 8svh, 96px); left: 50%; transform: translateX(-50%);
+  width: min(420px, calc(100% - 32px)); display: flex; flex-direction: column;
+  align-items: center; gap: 12px; margin: 0; text-align: center;
+}
+.library-homepage .door-instruction {
+  color: var(--destructive); text-shadow: 1px 1px 3px var(--updates-shadow), -1px -1px 3px var(--updates-shadow);
+  font-size: 25px; line-height: 1.2; font-weight: 700;
+}
+.library-homepage .door-arrow {
+  display: block; width: 70px; height: auto; flex: none;
+  animation: door-arrow-bob 1.2s ease-in-out infinite;
+}
+@keyframes door-arrow-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
 .rope.door-open { top: -171%; }
+.library-homepage .rope.door-open { top: -171%; }
 .library-homepage .leftcurtain, .library-homepage .rightcurtain, .library-homepage .rope { pointer-events: auto; touch-action: none; }
 a.africaVotesChat { z-index: 2002; }
 #africavotes-chat { z-index: 2003; }
@@ -56,5 +74,6 @@ a.africaVotesChat { z-index: 2002; }
 }
 @media (prefers-reduced-motion: reduce) {
   .leftcurtain, .rightcurtain, .rope { transition: none; }
+  .library-homepage .door-arrow { animation: none; }
   .animated, .heartbit, .heartbeat { animation: none; }
 }

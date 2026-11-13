@@ -131,13 +131,8 @@ export function Index() {
         <img src="/__l5e/assets-v1/43070cde-98ed-431a-a50b-65df8cc8df0a/d52f1d3e4b7ea8ab.webp" />
       </div>
       <a className={"rope"}>
-        <br />
-        <br />
-        <div style={{ fontSize: "25px", textShadow: "black 1px 1px 3px, black 1px 1px 3px, black -1px -1px 3px, black -1px -1px 3px", color: "rgb(255, 0, 0)", fontWeight: "bold" } as CSSProperties}>
-          <br />
-          <b><br /><br />Tap on the door to enter<br /></b>
-        </div>
-        <img src="/__l5e/assets-v1/9e6ae089-25cf-43fb-9117-a2e212d3153d/243d7d09dd033233.webp" height="auto" width="70px" style={{ animation: "0s ease 0s infinite normal none running tada" } as CSSProperties} />
+        <b className="door-instruction">Tap on the door to enter</b>
+        <img className="door-arrow" src="/__l5e/assets-v1/9e6ae089-25cf-43fb-9117-a2e212d3153d/243d7d09dd033233.webp" alt="" width="70" />
       </a>
       {ImportedNav()}
       <div className={"navbar-default sidebar"} role="navigation" data-site-import-responsive="52">
