@@ -6,6 +6,7 @@ import { loadRepositoryDocuments } from '@/lib/repository-catalog';
 import { loadDocument } from '@/lib/document-catalog';
 import { documentSlug } from '@/lib/document-metadata';
 import { searchLibrary } from '@/lib/library-search';
+import { resourceTitle } from '@/lib/resources';
 
 describe('Unified repository catalog', () => {
   it('includes every one of the 50 menu repositories with all extracted references', async () => {
@@ -44,5 +45,27 @@ describe('Unified repository catalog', () => {
     const { resourceTitle } = await import('@/lib/resources');
     const exact = await searchLibrary(resourceTitle(item));
     expect(exact.items.some(result => result.pdfUrl === item.pdfUrl)).toBe(true);
+  }, 60000);
+  it('keeps Boolean search results stable when a query includes and', async () => {
+    const plain = await searchLibrary('p7 maths');
+    const natural = await searchLibrary('p7 and maths');
+    expect(plain.total).toBe(2616);
+    expect(natural.total).toBe(plain.total);
+    expect(natural.items.map(item => item.pdfUrl)).toEqual(plain.items.map(item => item.pdfUrl));
+  }, 60000);
+  it('sorts the entire match set before slicing result pages', async () => {
+    const first = await searchLibrary('p7 maths', 1, 12, 'title-asc');
+    const second = await searchLibrary('p7 maths', 2, 12, 'title-asc');
+    const titles = [...first.items, ...second.items].map(resourceTitle);
+    const ordered = [...titles].sort((a, b) => a.localeCompare(b));
+    expect(titles).toEqual(ordered);
+    expect(second.items).toHaveLength(12);
+  }, 60000);
+  it('filters the entire match set before slicing result pages', async () => {
+    const result = await searchLibrary('p7 maths', 2, 12, 'source', 'PDF');
+    expect(result.page).toBe(2);
+    expect(result.total).toBeGreaterThan(24);
+    expect(result.items).toHaveLength(12);
+    expect(result.items.every(item => item.pdfUrl.split('?')[0]?.toLowerCase().endsWith('.pdf'))).toBe(true);
   }, 60000);
 });

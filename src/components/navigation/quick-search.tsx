@@ -50,7 +50,7 @@ export function QuickSearch({ open, onOpenChange, triggerRef }: {
   const viewAll = () => {
     if (query) rememberSearch(query);
     onOpenChange(false);
-    void router.navigate({ to: '/search', search: { query, page: 1 } });
+    void router.navigate({ to: '/search', search: { query, page: 1, sort: 'source', type: 'all', layout: 'grid' } });
   };
   const openDocument = (item: ResourceRecord) => {
     rememberSearch(query); onOpenChange(false);

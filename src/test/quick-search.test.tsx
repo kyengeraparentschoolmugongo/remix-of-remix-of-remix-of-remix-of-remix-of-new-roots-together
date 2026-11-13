@@ -19,7 +19,7 @@ it('hands Enter to the full search page with a shareable query', async () => {
   fireEvent.change(screen.getByRole('combobox'), { target: { value: 'P7 science' } });
   await screen.findByRole('option', { name: /P.7 Science Notes/i });
   fireEvent.submit(screen.getByRole('search'));
-  expect(mocks.navigate).toHaveBeenCalledWith({ to: '/search', search: { query: 'P7 science', page: 1 } });
+  expect(mocks.navigate).toHaveBeenCalledWith({ to: '/search', search: { query: 'P7 science', page: 1, sort: 'source', type: 'all', layout: 'grid' } });
   expect(close).toHaveBeenCalledWith(false);
 });
 it('opens a keyboard-selected document with its full search return context', async () => {

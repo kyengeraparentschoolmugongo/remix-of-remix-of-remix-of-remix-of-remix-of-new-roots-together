@@ -24,7 +24,7 @@ export function searchTokens(value: string): string[] {
 }
 
 const cache = new WeakMap<ResourceRecord[], MiniSearch>();
-const stopWords = new Set(['pdf', 'the', 'a', 'of', 'and', 'for']);
+const stopWords = new Set(['pdf', 'the', 'a', 'of', 'and', 'for', 'in', 'with']);
 export function libraryQueryTokens(query: string) {
   return searchTokens(query).filter(term => !stopWords.has(term));
 }

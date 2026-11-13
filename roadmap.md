@@ -1,7 +1,7 @@
 # Repository import
-- [ ] Fix full-search counts, pagination, global ordering, and document return state.
-- [ ] Normalize natural-language queries and pre-warm search on intent.
-- [ ] Verify search on desktop and phone, including cookie overlap and regression tests.
+- [x] Fix full-search counts, pagination, global ordering, and document return state.
+- [x] Normalize natural-language queries and pre-warm search on intent and browser idle.
+- [x] Verify search on desktop and phone, including cookie overlap and regression tests.
 - [x] Add quick-search dialog with instant results and full-page handoff.
 - [x] Verify quick search, keyboard controls, document opening, and phone layout.
 - [x] Snapshot every More Documents repository into the shared catalog.

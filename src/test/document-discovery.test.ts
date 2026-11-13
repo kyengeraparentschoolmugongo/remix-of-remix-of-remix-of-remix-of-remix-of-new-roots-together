@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { filterResources, resourceTitle, type ResourceRecord } from '@/lib/resources';
+import { libraryQueryTokens } from '@/lib/document-search';
 import { legacySearch } from '@/lib/legacy-pages';
 import { documentMetadata, documentSlug } from '@/lib/document-metadata';
 import { loadDocument } from '@/lib/document-catalog';
@@ -14,6 +15,9 @@ const mtc = record('P.7 M.T.C END OF TERM 1');
 const science = record('P.7 SCIENCE MOCK 2022');
 const items = [maths, mtc, science];
 describe('Document discovery rules', () => {
+  it('removes natural-language stopwords without removing class or subject terms', () => {
+    expect(libraryQueryTokens('schemes of work for p7 in mathematics with answers')).toEqual(['scheme', 'p7', 'mathematics', 'answers']);
+  });
   it('mathematics includes maths and MTC filenames', () => { expect(new Set(filterResources(items, 'mathematics'))).toEqual(new Set([maths, mtc])); });
   it('matches all query words in any order with class aliases', () => { expect(filterResources(items, 'mock primary seven mathematics')).toEqual([maths]); });
   it('normalizes dotted class punctuation', () => { expect(filterResources(items, 'P.7 mathematics')).toHaveLength(2); });
