@@ -1,0 +1,121 @@
+[
+  {
+    "capability": "code",
+    "source": "GitHub repository",
+    "outcome": "preserve",
+    "status": "verified",
+    "next_action": "None: 169 regression tests pass; desktop and phone navigation, search and both PDF modes checked."
+  },
+  {
+    "capability": "bundled catalogs",
+    "source": "GitHub repository",
+    "outcome": "preserve",
+    "status": "verified",
+    "next_action": "None: 169 regression tests pass; desktop and phone navigation, search and both PDF modes checked."
+  },
+  {
+    "capability": "document reader",
+    "source": "GitHub repository",
+    "outcome": "preserve",
+    "status": "verified",
+    "next_action": "None: 169 regression tests pass; desktop and phone navigation, search and both PDF modes checked."
+  },
+  {
+    "capability": "navigation",
+    "source": "GitHub repository",
+    "outcome": "preserve",
+    "status": "verified",
+    "next_action": "None: 169 regression tests pass; desktop and phone navigation, search and both PDF modes checked."
+  },
+  {
+    "capability": "media",
+    "source": "GitHub repository",
+    "outcome": "preserve",
+    "status": "verified",
+    "next_action": "None: 169 regression tests pass; desktop and phone navigation, search and both PDF modes checked."
+  },
+  {
+    "capability": "external GitHub documents",
+    "source": "GitHub repository",
+    "outcome": "preserve",
+    "status": "partially verified",
+    "next_action": "Representative PDF checked; every external document was not tested."
+  },
+  {
+    "capability": "installation",
+    "source": "GitHub repository",
+    "outcome": "preserve",
+    "status": "pending",
+    "next_action": "Manifest and icons preserved; native device installation requires published-app verification. Source legacy APK is unavailable."
+  },
+  {
+    "capability": "verification",
+    "source": "GitHub repository",
+    "outcome": "preserve",
+    "status": "verified",
+    "next_action": "None: 169 regression tests pass; desktop and phone navigation, search and both PDF modes checked."
+  },
+  {
+    "capability": "schema",
+    "source": "Source inspection",
+    "outcome": "not applicable",
+    "status": "verified",
+    "next_action": "None: no implementation detected"
+  },
+  {
+    "capability": "application records",
+    "source": "Source inspection",
+    "outcome": "not applicable",
+    "status": "verified",
+    "next_action": "None: no implementation detected"
+  },
+  {
+    "capability": "auth identities",
+    "source": "Source inspection",
+    "outcome": "not applicable",
+    "status": "verified",
+    "next_action": "None: no implementation detected"
+  },
+  {
+    "capability": "authorization",
+    "source": "Source inspection",
+    "outcome": "not applicable",
+    "status": "verified",
+    "next_action": "None: no implementation detected"
+  },
+  {
+    "capability": "payments",
+    "source": "Source inspection",
+    "outcome": "not applicable",
+    "status": "verified",
+    "next_action": "None: no implementation detected"
+  },
+  {
+    "capability": "email",
+    "source": "Source inspection",
+    "outcome": "not applicable",
+    "status": "verified",
+    "next_action": "None: no implementation detected"
+  },
+  {
+    "capability": "webhooks",
+    "source": "Source inspection",
+    "outcome": "not applicable",
+    "status": "verified",
+    "next_action": "None: no implementation detected"
+  },
+  {
+    "capability": "schedules",
+    "source": "Source inspection",
+    "outcome": "not applicable",
+    "status": "verified",
+    "next_action": "None: no implementation detected"
+  },
+  {
+    "capability": "secrets",
+    "source": "Source inspection",
+    "outcome": "not applicable",
+    "status": "verified",
+    "next_action": "None: no implementation detected"
+  }
+]

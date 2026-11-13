@@ -1,0 +1,16 @@
+# Repository import
+- [ ] Fix full-search counts, pagination, global ordering, and document return state.
+- [ ] Normalize natural-language queries and pre-warm search on intent.
+- [ ] Verify search on desktop and phone, including cookie overlap and regression tests.
+- [x] Add quick-search dialog with instant results and full-page handoff.
+- [x] Verify quick search, keyboard controls, document opening, and phone layout.
+- [x] Snapshot every More Documents repository into the shared catalog.
+- [x] Replace live repository listings and browser-cache-only document lookup.
+- [x] Verify catalog integrity, search, shared links, and phone browsing (179 tests; zero listing API calls).
+- [x] Import source, routes, catalogs, reader and navigation.
+- [x] Transfer 170 media files into this project.
+- [x] Run all 169 regression tests; preview build and typecheck succeed.
+- [x] Verify desktop and phone class menus, search and both PDF modes.
+- [x] Add the mascot picture to the app-bar install card as a lightweight WebP pointer.
+- [ ] Native installed-app verification: requires a published app and device.
+- [ ] Restore legacy APK download: requires the missing APK from the source owner.
